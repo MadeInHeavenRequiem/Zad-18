@@ -1,23 +1,27 @@
-n = int(input('podaj ile będzie liczb '))
-suma = 0
-max_liczba = -1000000000000000000000
-min_liczba = 1000000000000000000000
-ile_mniejszych_od_3 = 0
-
-for i in range(n):
-    liczba = int(input('podaj następną liczbę '))
-    print('Podałeś liczbę ' + str(liczba))
-    suma = suma + liczba
-    print(suma)
-    if liczba > max_liczba:
-        max_liczba = liczba
-    if liczba < min_liczba:
-        min_liczba = liczba
-    if liczba < 3:
-        ile_mniejszych_od_3 = ile_mniejszych_od_3 + 1
-
-print('suma = {}'.format(suma))
-print('średnia = {}'.format(suma / n))
-print('max = {}'.format(max_liczba))
-print('min = {}'.format(min_liczba))
-print('mniejszych od 3 = {} liczb'.format(ile_mniejszych_od_3))
+lista = [1, 1, 1, 1]
+akcja = 1
+score1 = 0
+score2 = 0
+x = (score1 - score2)
+y = (score2 - score1)
+for i in lista:
+    print('Akcja nr {}'.format(akcja))
+    print('druzyna1 {} :'.format(score1), '{} druzyna2 '.format(score2))
+    odpowiedz = int(input('Ktora z druzyn wygrala akcje? '))
+    if odpowiedz == 1:
+        score1 = score1 + 1
+    elif odpowiedz == 2:
+        score2 = score2 + 1
+    akcja = akcja + 1
+    lista.append(1)
+    if score1 >= 21 or score2 >= 21:
+        if score1 >= 21 and score1 - score2 >= 2:
+            print('druzyna1 {} :'.format(score1), '{} druzyna2 '.format(score2))
+            print('Druzyna1 wygrala')
+            break
+        elif score2 >= 21 and score2 - score1 >= 2:
+            print('druzyna1 {} :'.format(score1), '{} druzyna2 '.format(score2))
+            print('Druzyna2 wygrala')
+            break
+        else:
+            print('Dodatkowe rundy')
